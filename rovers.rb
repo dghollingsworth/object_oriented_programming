@@ -1,5 +1,5 @@
 class Rover
-	
+	attr_reader :x, :y, :d 
 	def initialize(x, y, d)
 		@x = x
 		@y = y
@@ -16,20 +16,37 @@ class Rover
 		elsif @d== "W"
 			@x -= 1
 		end
-			
 	end
 
 	def to_s
-		"#{@x},#{y},#{d}"
+		"#{@x},#{@y},#{@d}"
 	end
 
 	def turn_right
-		@d = (@d + 1) % 4
-		self
+		if @d == "N"
+			@d = "E"
+		elsif @d == "E"
+			@d = "S"
+		elsif @d == "S"
+			@d = "W"
+		elsif @d == "W"
+			@d = "N"
+		else
+			"What the fuck - Right"
+		end
 	end
 	def turn_left
-		@d = (@d -1) % 4
-		self
+		if @d == "N"
+			@d = "W"
+		elsif @d == "W"
+			@d = "S"
+		elsif @d == "S"
+			@d = "E"
+		elsif @d == "E"
+			@d = "N"
+		else
+			"What the fuck - Left"
+		end
 	end
 end
 
