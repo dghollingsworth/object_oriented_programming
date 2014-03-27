@@ -9,3 +9,11 @@ class Instructor
   	"Everything is Ruby is an Object"
   end
 end
+
+class Person
+  
+  initialize(name)
+    @name = name
+  end
+end
+
